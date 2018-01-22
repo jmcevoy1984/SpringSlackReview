@@ -1,13 +1,12 @@
 package reviews;
 
-
 import java.util.Map;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// Slack Attachment as detailed here: https://api.slack.com/docs/message-attachments
 public class Attachment {
-    
     private String fallback;
     private String color;
     private String pretext;
@@ -24,269 +23,112 @@ public class Attachment {
     private int ts;
     private ArrayList<Map<String, Object>> fields;
     private ArrayList<String> mrkdwn_in;
-
     private Map<String, Object> validKeysAndValuesForFields = new HashMap<String, Object>()
         {{
             put("title", "");
             put("value", "");
             put("short", true);
         }};
-
     private ArrayList<String> allowedMrkdwnInFields = new ArrayList<String>(Arrays.asList("text", "pretext", "fields"));
 
-
     private boolean isFieldValid(Map<String, Object> newField) {
-
         ArrayList<String> alreadyCheckedKeys = new ArrayList<String>();
-
         for(Map.Entry<String, Object> validField:this.validKeysAndValuesForFields.entrySet()) {
-
             if(newField.get(validField.getKey()) != null) {
-
                 if(!(newField.get(validField.getKey()).getClass().equals(validField.getValue().getClass()))) {
-
                     return false;
-
                 }
                 else {
-
                     if (alreadyCheckedKeys.contains(validField.getKey())) {
-
-
                         return false;
-
                     }
                     else{
-
                         alreadyCheckedKeys.add(validField.getKey());
-
                     }
-                    
                 }
-
             }
             else {
-
                 return false;
-
             }
-
         }
-
         return true;
-
     }
 
-    public String getFallback() {
+    public String getFallback() { return fallback; }
 
-        return fallback;
+    public String getColor() { return color; }
 
-    }
+    public String getPretext() { return pretext; }
 
-    public String getColor() {
+    public String getAuthor_name() { return author_name; }
 
-        return color;
+    public String getAuthor_link() { return author_link; }
 
-    }
+    public String getAuthor_icon() { return author_icon; }
 
-    public String getPretext() {
+    public String getTitle() { return title; }
 
-        return pretext;
+    public String getTitle_link() { return title_link; }
 
-    }
+    public String getText() { return text; }
 
-    public String getAuthor_name() {
+    public ArrayList<Map<String, Object>> getFields() { return fields; }
 
-        return author_name;
+    public String getImage_url() { return image_url; }
 
-    }
+    public String getThumb_url() { return thumb_url; }
 
-    public String getAuthor_link() {
+    public String getFooter() { return footer; }
 
-        return author_link;
+    public String getFooter_icon() { return footer_icon; }
 
-    }
+    public int getTs() { return ts; }
 
-    public String getAuthor_icon() {
+    public ArrayList<String> getMrkdwn_in() { return mrkdwn_in; }
 
-        return author_icon;
+    public void setFallback(String newFallback) { this.fallback = newFallback; }
 
-    }
+    public void setColor(String newColor) { this.color = newColor; }
 
-    public String getTitle() {
+    public void setPretext(String newPretext) { this.pretext = newPretext; }
 
-        return title;
+    public void setAuthorName(String newAuthorName) { this.author_name = newAuthorName; }
 
-    }
+    public void setAuthorLink(String newAuthorLink) { this.author_link = newAuthorLink; }
 
-    public String getTitle_link() {
+    public void setAuthorIcon(String newAuthorIcon) { this.author_icon = newAuthorIcon; }
 
-        return title_link;
+    public void setTitle(String newTitle) { this.title = newTitle; }
 
-    }
+    public void setTitleLink(String newTitleLink) { this.title_link = newTitleLink; }
 
-    public String getText() {
+    public void setText(String newText) { this.text = newText; }
 
-        return text;
+    public void setImageUrl(String newImageUrl) { this.image_url = newImageUrl; }
 
-    }
+    public void setThumbUrl(String newThumbUrl) { this.thumb_url = newThumbUrl; }
 
-    public ArrayList<Map<String, Object>> getFields() {
+    public void setFooter(String newFooter) { this.footer = newFooter; }
 
-        return fields;
+    public void setFooterIcon(String newFooterIcon) { this.footer_icon = newFooterIcon; }
 
-    }
-
-    public String getImage_url() {
-
-        return image_url;
-
-    }
-
-    public String getThumb_url() {
-
-        return thumb_url;
-
-    }
-
-    public String getFooter() {
-
-        return footer;
-
-    }
-
-    public String getFooter_icon() {
-
-        return footer_icon;
-
-    }
-
-    public int getTs() {
-
-        return ts;
-
-    }
-
-    public ArrayList<String> getMrkdwn_in() {
-
-        return mrkdwn_in;
-
-    }
-
-    public void setFallback(String newFallback) {
-
-        this.fallback = newFallback;
-
-    }
-
-    public void setColor(String newColor) {
-
-        this.color = newColor;
-
-    }
-
-    public void setPretext(String newPretext) {
-
-        this.pretext = newPretext;
-
-    }
-
-    public void setAuthorName(String newAuthorName) {
-
-        this.author_name = newAuthorName;
-
-    }
-
-    public void setAuthorLink(String newAuthorLink) {
-
-        this.author_link = newAuthorLink;
-
-    }
-
-    public void setAuthorIcon(String newAuthorIcon) {
-
-        this.author_icon = newAuthorIcon;
-
-    }
-
-    public void setTitle(String newTitle) {
-
-        this.title = newTitle;
-
-    }
-
-    public void setTitleLink(String newTitleLink) {
-
-        this.title_link = newTitleLink;
-
-    }
-
-    public void setText(String newText) {
-
-        this.text = newText;
-
-    }
-
-    public void setImageUrl(String newImageUrl) {
-
-        this.image_url = newImageUrl;
-
-    }
-
-    public void setThumbUrl(String newThumbUrl) {
-
-        this.thumb_url = newThumbUrl;
-
-    }
-
-    public void setFooter(String newFooter) {
-
-        this.footer = newFooter;
-
-    }
-
-    public void setFooterIcon(String newFooterIcon) {
-
-        this.footer_icon = newFooterIcon;
-
-    }
-
-    public void setTs(int newTs) {
-
-        this.ts = newTs;
-
-    }
+    public void setTs(int newTs) { this.ts = newTs; }
 
     public void addField(Map<String, Object> newField) {
-
         if (this.fields == null) {
-
             this.fields = new ArrayList<Map<String, Object>>();
-
         }
-
         if (this.isFieldValid(newField)) {
-
             this.fields.add(newField);
-
         }
-
     }
 
     public void addToMrkdwnIn(String newMrkdwnInField) {
-
         if (this.mrkdwn_in == null) {
-
             this.mrkdwn_in = new ArrayList<String>();
-
         }
-
         if (allowedMrkdwnInFields.contains(newMrkdwnInField)) {
-
             this.mrkdwn_in.add(newMrkdwnInField);
-
         }
-
     }
-
 }

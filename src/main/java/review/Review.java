@@ -1,8 +1,6 @@
 package reviews;
 
 public class Review {
-
-
     private String userName;
     private String callId;
     private String rating;
@@ -22,36 +20,19 @@ public class Review {
         this.comment = comment;
     }
 
-    public String getUserName() {
-        return userName;
-    }
+    public String getUserName() { return userName; }
 
-    public void setUserName(String newUserName) {
-        this.userName = newUserName;
-    }
+    public void setUserName(String newUserName) { this.userName = newUserName; }
 
-    public String getCallId() {
-        return callId;
-    }
+    public String getCallId() { return callId; }
 
-    public void setCallId(String newCallId) {
-        this.callId = newCallId;
-    }
+    public void setCallId(String newCallId) { this.callId = newCallId; }
 
-    public String getRating() {
-        return rating;
-    }
+    public String getRating() { return rating; }
 
-    public void setRating(String newRating) {
-        this.rating = newRating;
-    }
+    public void setRating(String newRating) { this.rating = newRating; }
 
-    public String getComment() {
-        return comment;
-    }
+    public String getComment() { return comment; }
 
-    public void setComment(String newComment) {
-        this.comment = newComment;
-    }
-
+    public void setComment(String newComment) { this.comment = newComment; }
 }

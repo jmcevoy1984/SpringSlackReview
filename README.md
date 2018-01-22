@@ -1,4 +1,4 @@
-#Spring Boot Java application to post Reviews to Slack
+# Spring Boot Java application to post Reviews to Slack
 
 This is a Spring Boot Java application that runs a web server and listens for a JSON payload, it then posts the payload to the desired slack channel in the form of a slack message containing an attachment.
 
